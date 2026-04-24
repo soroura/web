@@ -2,13 +2,14 @@
 
 A step-by-step guide to deploy this static website on a VPS (Ubuntu/Debian) with Nginx and SSL.
 
+Repository: https://github.com/soroura/web
+
 
 ## Prerequisites
 
 - A VPS running Ubuntu 22.04 or Debian 12 (any provider: DigitalOcean, Hetzner, Linode, Vultr, etc.)
 - SSH access to your VPS (root or sudo user)
 - A domain name pointed to your VPS IP (optional but recommended for SSL)
-- The `site/` folder from this project on your local machine
 
 
 ## 1. Initial VPS Setup
@@ -16,14 +17,14 @@ A step-by-step guide to deploy this static website on a VPS (Ubuntu/Debian) with
 SSH into your server:
 
 ```bash
-ssh root@YOUR_SERVER_IP
+ssh root@217.76.56.188
 ```
 
 Update packages and install essentials:
 
 ```bash
 apt update && apt upgrade -y
-apt install -y nginx certbot python3-certbot-nginx ufw
+apt install -y nginx certbot python3-certbot-nginx ufw git
 ```
 
 
@@ -46,43 +47,33 @@ ufw status
 You should see OpenSSH, Nginx Full (v6) listed as ALLOW.
 
 
-## 3. Transfer Site Files to VPS
-
-From your local machine (not the VPS), run:
+## 3. Clone the Repository
 
 ```bash
-scp -r site/ root@YOUR_SERVER_IP:/tmp/sorour-site/
+cd /opt
+git clone https://github.com/soroura/web.git
+cd web
 ```
 
-This uploads the entire site folder to a temporary location on the server.
 
+## 4. Configure and Deploy
 
-## 4. Deploy the Site
-
-SSH back into your VPS and run the deploy script:
+Edit the deploy script to set your domain (or use your VPS IP if you don't have a domain yet):
 
 ```bash
-ssh root@YOUR_SERVER_IP
-cd /tmp/sorour-site
+nano deploy.sh    # update DOMAIN="your-domain.com"
+```
+
+Then run:
+
+```bash
 chmod +x deploy.sh
-```
-
-Before running, edit `deploy.sh` and `nginx.conf` to replace `your-domain.com` with your actual domain or server IP:
-
-```bash
-nano deploy.sh    # update DOMAIN variable
-nano nginx.conf   # update server_name
-```
-
-Then deploy:
-
-```bash
 sudo ./deploy.sh
 ```
 
 The script will:
 1. Create `/var/www/sorour/` and copy all HTML and CSS files
-2. Install the Nginx config to `/etc/nginx/sites-available/sorour`
+2. Generate the Nginx config with your domain and install it
 3. Enable the site and reload Nginx
 
 
@@ -97,7 +88,7 @@ http://YOUR_SERVER_IP
 or if DNS is configured:
 
 ```
-http://your-domain.com
+http://soroura.org
 ```
 
 You should see the homepage. Click through all five pages (Home, Experience, Projects, Education, Contact) to confirm navigation works.
@@ -140,10 +131,7 @@ If you also set up `www`:
 sudo certbot --nginx -d your-domain.com -d www.your-domain.com
 ```
 
-Certbot will:
-- Obtain a free SSL certificate
-- Automatically modify your Nginx config to serve HTTPS
-- Set up HTTP to HTTPS redirect
+Certbot will obtain a free SSL certificate, modify your Nginx config to serve HTTPS, and set up an HTTP to HTTPS redirect.
 
 Verify auto-renewal works:
 
@@ -167,15 +155,25 @@ You should see the green padlock. All pages should load over HTTPS.
 
 ## Updating the Site
 
-When you make changes to the HTML or CSS files:
+When you make changes locally:
 
-1. From your local machine:
+1. Push your changes to GitHub:
 
 ```bash
-scp site/*.html site/style.css root@YOUR_SERVER_IP:/var/www/sorour/
+git add .
+git commit -m "Update site content"
+git push
 ```
 
-2. That is it. Nginx serves static files directly, so changes appear immediately. No restart needed.
+2. On your VPS, pull and redeploy:
+
+```bash
+cd /opt/web
+git pull
+sudo ./deploy.sh
+```
+
+That is it. Nginx serves static files directly, so changes appear as soon as the files are copied.
 
 
 ## File Structure on VPS
@@ -183,7 +181,18 @@ scp site/*.html site/style.css root@YOUR_SERVER_IP:/var/www/sorour/
 After deployment:
 
 ```
-/var/www/sorour/
+/opt/web/                            (git repo)
+  index.html
+  experience.html
+  projects.html
+  education.html
+  contact.html
+  style.css
+  nginx.conf
+  deploy.sh
+  DEPLOY.md
+
+/var/www/sorour/                     (served by Nginx)
   index.html
   experience.html
   projects.html
@@ -200,7 +209,7 @@ After deployment:
 
 **Nginx fails to start or reload**
 ```bash
-sudo nginx -t          # shows config errors
+sudo nginx -t
 sudo journalctl -u nginx --no-pager -n 30
 ```
 
@@ -222,3 +231,9 @@ Make sure DNS is fully propagated (check with `dig your-domain.com`), port 80 is
 
 **404 on subpages**
 Confirm all HTML files are in `/var/www/sorour/` and the Nginx config has `try_files $uri $uri/ =404;`.
+
+**git pull permission denied**
+If you cloned as root but run as a regular user:
+```bash
+sudo chown -R $(whoami):$(whoami) /opt/web
+```

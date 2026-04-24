@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Builds | Ahmed Sorour</title>
+  <meta name="description" content="SimReady simulation exercise platform, National Assessment Platform, and TraumaApp research — tools built to solve problems from the field.">
+  <meta property="og:title" content="Builds — Ahmed Sorour">
+  <meta property="og:description" content="Tools built to close the gap between what health systems need and what practitioners actually have.">
+  <meta name="theme-color" content="#334155">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="site-nav" id="siteNav">
+    <div class="container">
+      <a href="index.html" class="site-name">Ahmed Sorour</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="builds.html" class="active">Builds</a></li>
+        <li><a href="writing.html">Field Notes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Say Hello</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container--narrow">
+      <div class="section-label">Builds</div>
+      <h1>Every tool here traces back to a problem I watched happen.</h1>
+      <p class="lead">Paper-based simulation exercises. Fragmented assessment data. Evaluation by memory. These builds exist because I got tired of watching the gap stay open.</p>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="container--narrow">
+
+      <div class="project">
+        <h3>SimReady</h3>
+        <span class="status">In Development &middot; 11 Releases Shipped</span>
+        <p>An AI-augmented simulation exercise platform that covers the full exercise lifecycle: Plan, Design, Conduct, Evaluate. SimReady exists because simulation exercises — the single most effective tool for testing emergency preparedness — are still designed on paper, facilitated with walkie-talkies, and evaluated from memory.</p>
+        <p>The platform includes an 8-step AI Scenario Generator covering 12 exercise classes across 22 EMRO countries, a live Exercise Runner with a Unified Inject Queue, six realism modules (chat, PTT radio, SitRep dashboards, news/social media, patient tracking, document exchange), and an evaluation engine that produces AI-generated After-Action Reviews with cross-exercise analytics.</p>
+        <p>Built offline-first with CRDT sync, multi-language support (Arabic RTL, English, French, Spanish), and an MCP server with 28 tools for conversational exercise management through AI assistants.</p>
+        <div class="tags">
+          <span class="tag">AI-Augmented</span>
+          <span class="tag">Offline-First</span>
+          <span class="tag">WHO Methodology</span>
+          <span class="tag">Arabic RTL</span>
+          <span class="tag">105+ API Endpoints</span>
+          <span class="tag">MCP Integration</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>National Assessment Platform</h3>
+        <span class="status">In Development</span>
+        <p>A digital framework consolidating WHO-aligned assessment tools and checklists into a single platform for national-level health facility evaluation and quality improvement. Designed for hospital teams, quality officers, and national programme coordinators who currently work across disconnected spreadsheets and paper forms.</p>
+        <p>Covers patient safety (PSFHI), disaster preparedness, mass casualty management, and emergency care readiness — bringing multiple assessment domains into one coherent system that supports gap identification, improvement tracking, and evidence-based reporting.</p>
+        <div class="tags">
+          <span class="tag">Health Facility Assessment</span>
+          <span class="tag">WHO-Aligned</span>
+          <span class="tag">Quality Improvement</span>
+          <span class="tag">National Scale</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>MSc Dissertation: TraumaApp ED Data Analysis</h3>
+        <span class="status">In Progress &middot; University of Edinburgh</span>
+        <p>A work-based dissertation analysing real-life data from the TraumaApp pilot at a Scottish hospital. The TraumaApp captures timed steps of the emergency department journey with a granularity that traditional registries cannot provide — making it possible to examine the factors that affect ED length of stay and time to definitive care.</p>
+        <div class="tags">
+          <span class="tag">Data Science</span>
+          <span class="tag">Emergency Department</span>
+          <span class="tag">Time-to-Care Analysis</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="cta-banner">
+    <div class="container--narrow">
+      <h2>Interested in what I'm building?</h2>
+      <p>I'm open to conversations about collaboration, technical feedback, or field deployment.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn-primary">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Ahmed Sorour</span>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:amounir82@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); });
+  </script>
+
+</body>
+</html>

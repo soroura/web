@@ -3,129 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmed Sorour | Public Health & Disaster Medicine</title>
-  <meta name="description" content="Ahmed Mounir A. M. Sorour. Public health and disaster medicine specialist. Emergency Officer at WHO Egypt.">
+  <title>Ahmed Sorour — Field Notes from Public Health, Disaster Medicine & Applied Technology</title>
+  <meta name="description" content="Public health and disaster medicine specialist. Building AI-augmented tools for emergency care and disaster preparedness from Cairo.">
+  <meta property="og:title" content="Ahmed Sorour — Field Notes">
+  <meta property="og:description" content="Public health and disaster medicine specialist at WHO Egypt. Building the tools the field is missing — from simulation exercises to health facility assessment.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://soroura.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ahmed Sorour — Field Notes">
+  <meta name="twitter:description" content="Public health and disaster medicine specialist building tools for emergency care from Cairo.">
+  <meta name="theme-color" content="#334155">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">Ahmed Sorour</a>
+  <nav class="site-nav" id="siteNav">
+    <div class="container">
+      <a href="index.html" class="site-name">Ahmed Sorour</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="builds.html">Builds</a></li>
+        <li><a href="writing.html">Field Notes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Say Hello</a></li>
       </ul>
     </div>
   </nav>
 
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-inner">
-      <h1>Ahmed Mounir A. M. Sorour</h1>
-      <div class="subtitle">Public Health & Disaster Medicine Specialist</div>
-      <p class="summary">Working at strategy and policy level across emergency care and disaster preparedness at WHO Egypt. Building applied technology tools for emergency care assessment and simulation, while completing an MSc in Data Science at the University of Edinburgh.</p>
-      <div class="contact-row">
-        <a href="mailto:amounir82@gmail.com">amounir82@gmail.com</a>
-        <a href="mailto:soroura@who.int">soroura@who.int</a>
-        <a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="container">
+      <h1 class="hero-provocation">Simulation exercises still run on paper. Health assessments live in spreadsheets no one reopens. <em>So I started building.</em></h1>
+      <p class="intro">Somewhere between offshore rigs, emergency departments, and WHO policy rooms, I stopped waiting for the right tools to show up — and started making them. This is where I share what's coming out of that work: platforms, field notes, and the thinking behind both.</p>
+      <div class="hero-buttons">
+        <a href="builds.html" class="btn-primary">See what I'm building &rarr;</a>
+        <a href="about.html" class="btn-secondary">The full story</a>
       </div>
     </div>
   </section>
 
-  <main class="main">
-
-    <!-- Current Roles -->
-    <div class="card">
-      <h2>Current Roles</h2>
-      <div class="role">
-        <div class="role-title">Emergency Officer, Health Systems</div>
-        <div class="role-org">World Health Organization (WHO) Egypt | 2020 - Present</div>
-        <ul class="role-bullets">
-          <li>Leading WHO standardised capacity-building implementation: BEC/ECT rollout across hospital and primary care levels</li>
-          <li>Strategy and policy work on Egypt's first National Emergency Care Strategy and upcoming Burn Care Strategy</li>
-          <li>Disaster preparedness: MCM, hospital resilience, PHEOC, CBRN across national and subnational levels</li>
-        </ul>
+  <!-- What I Work On — as Field Notes cards -->
+  <section class="home-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Areas of Work</div>
+        <div class="section-title">Four problems I keep coming back to</div>
       </div>
-      <div class="role">
-        <div class="role-title">Clinical Specialist Advisor</div>
-        <div class="role-org">Bupa Global | 2022 - Present (Remote)</div>
-        <ul class="role-bullets">
-          <li>Clinical advisory support for complex international cases in a global health insurance context</li>
-        </ul>
-      </div>
-      <div class="cta-row">
-        <a href="experience.html" class="cta">View Full Experience &rarr;</a>
-      </div>
-    </div>
-
-    <!-- Areas of Work -->
-    <div class="card">
-      <h2>Areas of Work</h2>
-      <div class="tags">
-        <span class="tag">Emergency Care Implementation</span>
-        <span class="tag">Disaster Preparedness</span>
-        <span class="tag">Mass Casualty Management</span>
-        <span class="tag">Hospital Resilience</span>
-        <span class="tag">PHEOC</span>
-        <span class="tag">CBRN</span>
-        <span class="tag">Strategy & Policy</span>
-        <span class="tag">Health Data Science</span>
-        <span class="tag">Simulation Exercises</span>
-        <span class="tag">Capacity Building</span>
-        <span class="tag">Training (TOT)</span>
-        <span class="tag">Burn Care</span>
+      <div class="notes-grid">
+        <div class="note-card">
+          <h3>Emergency Care Systems</h3>
+          <p>WHO frameworks sound clear in Geneva. Getting them to work inside an Egyptian hospital is a different problem entirely — and that's the one I'm focused on.</p>
+        </div>
+        <div class="note-card">
+          <h3>Disaster Preparedness</h3>
+          <p>Mass casualty drills, hospital resilience, surge planning. The infrastructure nobody thinks about until the day everything depends on it.</p>
+        </div>
+        <div class="note-card">
+          <h3>Applied Health Technology</h3>
+          <p>If it doesn't work offline, in Arabic, on a phone with 30% battery — it doesn't work in the field. That constraint shapes everything I build.</p>
+        </div>
+        <div class="note-card">
+          <h3>Health Data Science</h3>
+          <p>What actually happens in emergency departments and disaster responses — not what the reports say happens. Currently finishing an MSc at Edinburgh.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Projects Preview -->
-    <div class="card">
-      <h2>Applied Technology Portfolio</h2>
-      <div class="project-card">
-        <h3>National Assessment Platform</h3>
-        <span class="status">In Development</span>
-        <p>WHO-aligned checklists and assessment tools consolidated into a single digital framework for national-level implementation and quality improvement.</p>
+  <!-- Latest Field Notes -->
+  <section class="home-section home-section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Recent</div>
+        <div class="section-title">From the field</div>
       </div>
-      <div class="project-card">
-        <h3>Emergency Simulation Exercise Platform</h3>
-        <span class="status">In Development</span>
-        <p>AI-assisted simulation exercise design, facilitation, and after-action review for facility-level exercises.</p>
+      <div class="posts-grid">
+        <div class="post-card">
+          <div class="post-card-meta">
+            <span>Publication</span>
+            <span>&middot;</span>
+            <span>Global Innovation Index 2019</span>
+          </div>
+          <h3><a href="https://doi.org/10.34667/tind.40245" target="_blank" rel="noopener">Life is too Short with HCV and NCDs: 100 Million Healthy Lives Initiative</a></h3>
+          <p>Contribution to the Global Innovation Index documenting Egypt's national health initiative for Hepatitis C and non-communicable disease management at population scale.</p>
+          <div class="post-card-tags">
+            <span class="post-tag post-tag--green">Publication</span>
+            <span class="post-tag post-tag--gray">Public Health</span>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="post-card-meta">
+            <span>Training</span>
+            <span>&middot;</span>
+            <span>2024</span>
+          </div>
+          <h3><a href="writing.html">Regional Training of Trainers — Hybrid BEC Course</a></h3>
+          <p>Regional TOT for the hybrid Basic Emergency Care course at WHO EMRO, Botswana — building trainer capacity across the Eastern Mediterranean and African regions.</p>
+          <div class="post-card-tags">
+            <span class="post-tag post-tag--purple">Training</span>
+            <span class="post-tag post-tag--gray">Emergency Care</span>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="post-card-meta">
+            <span>Conference</span>
+            <span>&middot;</span>
+            <span>2024</span>
+          </div>
+          <h3><a href="writing.html">Regional Trauma Meeting — WHO EMRO, Doha</a></h3>
+          <p>Addressing trauma care systems and emergency response capacity across the Eastern Mediterranean Region.</p>
+          <div class="post-card-tags">
+            <span class="post-tag post-tag--blue">Conference</span>
+            <span class="post-tag post-tag--gray">Trauma</span>
+          </div>
+        </div>
       </div>
-      <div class="cta-row">
-        <a href="projects.html" class="cta">Learn More &rarr;</a>
+      <a href="writing.html" class="view-all">All field notes &rarr;</a>
+    </div>
+  </section>
+
+  <!-- About Teaser -->
+  <section class="about-teaser">
+    <div class="about-teaser-inner">
+      <div class="field-marker"></div>
+      <h2>Offshore rigs. Emergency departments. WHO policy rooms. Then I started building.</h2>
+      <p>Three career arcs that keep converging on the same question: why don't the people doing the hardest work have the tools they need? This site is the answer — or at least the start of one.</p>
+      <a href="about.html" class="about-link">Read the full story &rarr;</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Working in emergency care or disaster preparedness?</h2>
+      <p>I'm always interested in conversations about building better tools for the field.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn-primary">Get in touch</a>
+        <a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener" class="btn-secondary">LinkedIn</a>
       </div>
     </div>
+  </section>
 
-    <!-- Education Preview -->
-    <div class="card">
-      <h2>Education</h2>
-      <div class="role">
-        <div class="role-title">MSc Data Science for Health & Social Care <span style="font-weight:400;color:var(--text-light);font-size:0.85rem">(in progress)</span></div>
-        <div class="role-org">University of Edinburgh</div>
-      </div>
-      <div class="role">
-        <div class="role-title">MSc Public Health / Health Service Management</div>
-        <div class="role-org">London School of Hygiene and Tropical Medicine</div>
-      </div>
-      <div class="role">
-        <div class="role-title">MBBCh (Bachelor of Medicine and Surgery)</div>
-        <div class="role-org">Ain Shams University, Cairo</div>
-      </div>
-      <div class="cta-row">
-        <a href="education.html" class="cta">Full Education & Certifications &rarr;</a>
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Ahmed Sorour</span>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:amounir82@gmail.com">Email</a>
       </div>
     </div>
-
-  </main>
-
-  <footer class="footer">
-    Ahmed Sorour &middot; Cairo, Egypt &middot; <a href="mailto:amounir82@gmail.com">amounir82@gmail.com</a>
   </footer>
+
+  <script>
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); });
+  </script>
 
 </body>
 </html>

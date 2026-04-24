@@ -3,81 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Ahmed Sorour</title>
-  <meta name="description" content="Get in touch with Ahmed Sorour. Email, LinkedIn, and professional contact details.">
+  <title>Say Hello | Ahmed Sorour</title>
+  <meta name="description" content="Get in touch with Ahmed Sorour. Email and professional contact details.">
+  <meta property="og:title" content="Say Hello — Ahmed Sorour">
+  <meta property="og:description" content="I'm always interested in conversations about emergency care, disaster preparedness, or building better tools for the field.">
+  <meta name="theme-color" content="#334155">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">Ahmed Sorour</a>
+  <nav class="site-nav" id="siteNav">
+    <div class="container">
+      <a href="index.html" class="site-name">Ahmed Sorour</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="builds.html">Builds</a></li>
+        <li><a href="writing.html">Field Notes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta active">Say Hello</a></li>
       </ul>
     </div>
   </nav>
 
   <section class="page-header">
-    <div class="page-header-inner">
-      <h1>Get in Touch</h1>
-      <p class="lead">I welcome inquiries about collaboration, research, or professional opportunities.</p>
+    <div class="container--narrow">
+      <div class="section-label">Contact</div>
+      <h1>Say Hello</h1>
+      <p class="lead">I'm always interested in conversations about emergency care, disaster preparedness, or building better tools for the field.</p>
     </div>
   </section>
 
   <main class="main">
+    <div class="container--narrow">
 
-    <div class="card">
-      <h2>Contact Details</h2>
-      <div class="contact-grid">
-        <div class="contact-item">
-          <div class="label">Personal Email</div>
-          <div class="value"><a href="mailto:amounir82@gmail.com">amounir82@gmail.com</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="label">WHO Email</div>
-          <div class="value"><a href="mailto:soroura@who.int">soroura@who.int</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="label">Phone</div>
-          <div class="value">(+20) 100 16 26 093</div>
-        </div>
-        <div class="contact-item">
-          <div class="label">LinkedIn</div>
-          <div class="value"><a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">linkedin.com/in/soroura</a></div>
+      <div class="writing-section">
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="label">Personal Email</div>
+            <div class="value"><a href="mailto:amounir82@gmail.com">amounir82@gmail.com</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="label">WHO Email</div>
+            <div class="value"><a href="mailto:soroura@who.int">soroura@who.int</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="label">LinkedIn</div>
+            <div class="value"><a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">linkedin.com/in/soroura</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="label">Location</div>
+            <div class="value">Cairo, Egypt</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <h2>Location</h2>
-      <p style="font-size:0.92rem;color:var(--text-light);line-height:1.7">Based in Cairo, Egypt. Available for international opportunities and remote collaboration.</p>
-    </div>
+      <hr class="divider">
 
-    <div class="card">
-      <h2>Affiliations</h2>
-      <div class="role" style="margin-bottom:0.6rem">
-        <div class="role-title">World Health Organization (WHO)</div>
-        <div class="role-org">Emergency Health Systems, Egypt</div>
+      <div class="writing-section">
+        <div class="writing-section-title">Affiliations</div>
+        <div class="prose">
+          <p><strong>World Health Organization (WHO)</strong> — Emergency Officer, Health Systems, Egypt Country Office</p>
+          <p><strong>African Federation for Emergency Medicine (AFEM)</strong> — Collaborator and national BEC lead for Egypt</p>
+          <p><strong>Bupa Global</strong> — Clinical Specialist Advisor</p>
+        </div>
       </div>
-      <div class="role">
-        <div class="role-title">African Federation for Emergency Medicine (AFEM)</div>
-        <div class="role-org">Collaborator and national BEC lead</div>
-      </div>
-    </div>
 
+    </div>
   </main>
 
-  <footer class="footer">
-    Ahmed Sorour &middot; Cairo, Egypt &middot; <a href="mailto:amounir82@gmail.com">amounir82@gmail.com</a>
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Ahmed Sorour</span>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:amounir82@gmail.com">Email</a>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); });
+  </script>
 
 </body>
 </html>
