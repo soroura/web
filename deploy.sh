@@ -25,8 +25,10 @@ sudo mkdir -p "$SITE_DIR"
 
 # 2. Copy site files from repo
 echo "[2/5] Copying site files..."
-sudo cp "$REPO_DIR"/index.html "$REPO_DIR"/experience.html "$REPO_DIR"/projects.html \
-        "$REPO_DIR"/education.html "$REPO_DIR"/contact.html "$REPO_DIR"/style.css "$SITE_DIR/"
+sudo cp "$REPO_DIR"/index.html "$REPO_DIR"/projects.html "$REPO_DIR"/contact.html \
+        "$REPO_DIR"/about.html "$REPO_DIR"/builds.html "$REPO_DIR"/writing.html \
+        "$REPO_DIR"/style.css "$SITE_DIR/"
+sudo find "$REPO_DIR" -maxdepth 1 \( -name "*.jpeg" -o -name "*.jpg" -o -name "*.png" -o -name "*.svg" -o -name "*.ico" -o -name "*.webp" \) -exec sudo cp {} "$SITE_DIR/" \;
 sudo chown -R www-data:www-data "$SITE_DIR"
 sudo chmod -R 755 "$SITE_DIR"
 
