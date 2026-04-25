@@ -1,6 +1,7 @@
 /* ===== Ahmed Sorour — Field Notes ===== */
 /* Slate & Ember: cool slate base, single warm ember accent, serif headlines, editorial weight */
 
+/* Fonts loaded via <link> in HTML for performance — fallback @import below */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;450;500;550;600;700&display=swap');
 
 /* ===== LIGHT MODE ===== */
