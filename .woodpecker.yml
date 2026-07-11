@@ -1,0 +1,43 @@
+steps:
+  - name: upload
+    image: appleboy/drone-scp
+    settings:
+      host:
+        from_secret: VPS_HOST
+      username:
+        from_secret: VPS_USER
+      key:
+        from_secret: VPS_SSH_KEY
+      port: 22
+      source: "*.html,style.css,robots.txt,sitemap.xml,my-bw.jpeg,favicon.svg,favicon.ico,apple-touch-icon.png,deploy.sh,nginx.conf"
+      target: /opt/web
+      rm: false
+    when:
+      - branch: main
+        event: push
+
+  - name: deploy
+    image: appleboy/drone-ssh
+    depends_on:
+      - upload
+    settings:
+      host:
+        from_secret: VPS_HOST
+      username:
+        from_secret: VPS_USER
+      key:
+        from_secret: VPS_SSH_KEY
+      port: 22
+      command_timeout: 5m
+      script:
+        - |
+          set -eu
+          test -x /opt/web/deploy.sh || chmod +x /opt/web/deploy.sh
+          cd /opt/web
+          ./deploy.sh
+          test -f /var/www/sorour/index.html
+          grep -q "Better preparedness needs better connections" /var/www/sorour/index.html
+    when:
+      - branch: main
+        event: push
+
