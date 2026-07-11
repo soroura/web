@@ -32,12 +32,19 @@ steps:
       script:
         - |
           set -eu
-          test -x /opt/web/deploy.sh || chmod +x /opt/web/deploy.sh
-          cd /opt/web
-          ./deploy.sh
+          test -f /opt/web/index.html
+          install -d -o www-data -g www-data /var/www/sorour
+          rsync -a --delete \
+            --exclude='.git/' \
+            --exclude='deploy.sh' \
+            --exclude='nginx.conf' \
+            --exclude='DEPLOY.md' \
+            --exclude='*.md' \
+            /opt/web/ /var/www/sorour/
+          chown -R www-data:www-data /var/www/sorour
+          chmod -R 755 /var/www/sorour
           test -f /var/www/sorour/index.html
           grep -q "Better preparedness needs better connections" /var/www/sorour/index.html
     when:
       - branch: main
         event: push
-
