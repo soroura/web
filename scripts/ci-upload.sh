@@ -99,8 +99,11 @@ cleanup() {
 trap cleanup EXIT
 
 echo "-> Streaming release $VERSION to the VPS..."
+# macOS tar adds Apple xattr headers that GNU tar on the VPS warns about.
+TAR_OPTS=""
+if tar --no-xattrs -cf /dev/null site 2>/dev/null; then TAR_OPTS="--no-xattrs"; fi
 # shellcheck disable=SC2086
-tar czf - $RELEASE_PATHS | ssh $SSH_OPTS "$REMOTE" "tar xzf - -C '$STAGE'"
+tar $TAR_OPTS -czf - $RELEASE_PATHS | ssh $SSH_OPTS "$REMOTE" "tar xzf - -C '$STAGE'"
 
 echo "-> Installing release into $TARGET..."
 # shellcheck disable=SC2086
