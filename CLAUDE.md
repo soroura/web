@@ -7,7 +7,7 @@ Personal website for Ahmed Sorour. Static HTML + CSS, no build step, no JS frame
 - Plain HTML files (one per page)
 - Single `style.css` with CSS custom properties for theming
 - Light/dark mode via `prefers-color-scheme`
-- Hosted on a VPS, served by Nginx, fronted by Cloudflare
+- Hosted on a VPS: Cloudflare -> Nginx Proxy Manager -> `sorour-web` nginx container
 
 ## File structure
 
@@ -18,8 +18,10 @@ builds.html      — projects (SimReady, NAP)
 writing.html     — field notes index
 contact.html     — contact form
 style.css        — all styles
-nginx.conf       — Nginx site config (template)
-deploy.sh        — deployment script
+nginx.conf       — server block for the sorour-web container
+deploy.sh        — server-side deploy (runs on the VPS)
+.woodpecker.yml  — CI: check on every push/PR, deploy on push to main
+scripts/         — release-manifest, build, link check, upload, install
 my-bw.jpeg       — author photo
 favicon.svg / favicon.ico / apple-touch-icon.png
 ```
@@ -36,17 +38,22 @@ Pages share a nav and footer copy-pasted into each HTML file. There's no templat
 
 ## Deployment
 
-VPS: `root@217.76.56.188`. Repo lives at `/opt/web/`. Nginx serves from `/var/www/sorour/` (not directly from the repo).
+**Push to `main` deploys.** Woodpecker (`pipeline.agozo.xyz`, repo `soroura/web`) runs:
 
-**To deploy after local changes:**
-```bash
-git add . && git commit -m "..." && git push
+1. `check` — `scripts/build-release.sh` assembles `build/release/site/` (only files matching `SITE_FILES` in `scripts/release-manifest.sh`, plus `version.txt` = commit SHA), then `scripts/check-site.sh` fails on any broken local link, missing `<title>`, or pages disagreeing on `style.css?v=`.
+2. `deploy` — `scripts/ci-upload.sh` streams the release over plain OpenSSH to a `/tmp` staging dir, `install-release.sh` replaces the CI-owned paths in `/opt/web/`, and `deploy.sh` mirrors `site/` into `/var/www/sorour/` (`rsync --delete`, so deleted files disappear), keeps the `sorour-web` container serving it, and health-checks `127.0.0.1:8090`. The step ends by confirming `https://soroura.org/version.txt` shows the pushed SHA.
 
-# on VPS
-cd /opt/web && git pull && sudo ./deploy.sh
-```
+New pages and images deploy automatically (globs in `release-manifest.sh`). `*.md`, scripts and `.git` are never served.
 
-`deploy.sh` uses `rsync` to mirror the repo into `/var/www/sorour/`, excluding `.git/`, `*.md`, `deploy.sh`, and `nginx.conf`. Any new HTML/CSS/image file is picked up automatically — no need to edit `deploy.sh` when adding files.
+**Which commit is live:** `curl https://soroura.org/version.txt`
+
+**Run locally:** `sh scripts/build-release.sh && sh scripts/check-site.sh build/release/site`
+
+**Redeploy by hand on the VPS** (no CI needed): `cd /opt/web && sh ./deploy.sh`
+
+**Serving layer on the VPS (`root@217.76.56.188`):** system nginx is *not* used (inactive). Nginx Proxy Manager (proxy host for `soroura.org`) forwards to `217.76.56.188:8090` → container `sorour-web` (`nginx:1.29-alpine`), which mounts `/var/www/sorour` read-only and `/etc/sorour-web/default.conf` (installed from the repo's `nginx.conf`). `deploy.sh` recreates the container only if its spec (image, port, mounts) changes, rolling back to the previous container if the new one fails its health check; a config-only change just reloads nginx.
+
+Don't push to `main` while a pipeline is running — the newer push cancels it.
 
 ## Cloudflare gotcha (critical)
 
@@ -64,16 +71,6 @@ sed -i '' 's|style.css?v=N|style.css?v=N+1|g' *.html
 ```
 
 If you forget and need an immediate fix: purge Cloudflare cache via dashboard → Caching → Purge Everything.
-
-## Nginx config caveat
-
-There's a sibling site config at `/etc/nginx/sites-enabled/psfh` that has broken SSL (listens on 443 with no cert). When this is broken, `nginx -t` fails and `sudo systemctl reload nginx` silently doesn't reload. If a deploy doesn't seem to take effect, check:
-
-```bash
-sudo nginx -t
-```
-
-If it fails for `psfh`, either fix that site's SSL or remove `/etc/nginx/sites-enabled/psfh` until it's needed.
 
 ## Conventions
 

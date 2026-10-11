@@ -8,3 +8,6 @@
 # Planning and local working documents are not deployed by deploy.sh.
 # Keep them versioned unless they contain private material.
 
+
+# CI release output (scripts/build-release.sh)
+build/

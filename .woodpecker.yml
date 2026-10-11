@@ -1,50 +1,54 @@
+# soroura.org - static site, deployed to the VPS over plain OpenSSH.
+#
+# check  - builds the release and verifies every page's links resolve.
+# deploy - streams the release to /opt/web, runs deploy.sh there, then checks
+#          https://soroura.org/version.txt serves this commit.
+#
+# ASCII ONLY in this file, and keep commands trivial: Woodpecker rewrites them
+# into a generated script and masks secrets in it; multibyte characters slice
+# the next command. Logic lives in scripts/.
+#
+# Secrets (repo settings): VPS_HOST, VPS_USER, VPS_SSH_KEY. A name that does
+# not match the UI exactly injects an EMPTY value - the guard below catches it.
+#
+# Do not push to main while a run is in flight: the newer push cancels it.
+
 steps:
-  - name: upload
-    image: appleboy/drone-scp
-    settings:
-      host:
-        from_secret: VPS_HOST
-      username:
-        from_secret: VPS_USER
-      key:
-        from_secret: VPS_SSH_KEY
-      port: 22
-      source: "*.html,style.css,robots.txt,sitemap.xml,my-bw.jpeg,favicon.svg,favicon.ico,apple-touch-icon.png,deploy.sh,nginx.conf"
-      target: /opt/web
-      rm: false
+  - name: check
+    image: alpine:3.20
+    commands:
+      - sh scripts/build-release.sh
+      - sh scripts/check-site.sh build/release/site
     when:
-      - branch: main
-        event: push
+      - event: [push, pull_request, manual]
 
   - name: deploy
-    image: appleboy/drone-ssh
+    image: alpine:3.20
     depends_on:
-      - upload
-    settings:
-      host:
+      - check
+    environment:
+      VPS_HOST:
         from_secret: VPS_HOST
-      username:
+      VPS_USER:
         from_secret: VPS_USER
-      key:
+      VPS_SSH_KEY:
         from_secret: VPS_SSH_KEY
-      port: 22
-      command_timeout: 5m
-      script:
-        - |
-          set -eu
-          test -f /opt/web/index.html
-          install -d -o www-data -g www-data /var/www/sorour
-          rsync -a --delete \
-            --exclude='.git/' \
-            --exclude='deploy.sh' \
-            --exclude='nginx.conf' \
-            --exclude='DEPLOY.md' \
-            --exclude='*.md' \
-            /opt/web/ /var/www/sorour/
-          chown -R www-data:www-data /var/www/sorour
-          chmod -R 755 /var/www/sorour
-          test -f /var/www/sorour/index.html
-          grep -q "Better preparedness needs better connections" /var/www/sorour/index.html
+    commands:
+      - apk add --no-cache openssh-client tar curl
+      - |
+        if [ -z "$VPS_HOST" ] || [ -z "$VPS_USER" ] || [ -z "$VPS_SSH_KEY" ]; then
+          echo "ERROR: missing VPS deployment secret - check the names match the Woodpecker UI exactly"
+          exit 1
+        fi
+      - mkdir -p ~/.ssh
+      - printf '%s\n' "$VPS_SSH_KEY" | tr -d '\r' > ~/.ssh/id_deploy
+      - chmod 600 ~/.ssh/id_deploy
+      - ssh-keygen -y -f ~/.ssh/id_deploy >/dev/null
+      - export TARGET=/opt/web
+      - export SSH_OPTS="-i ~/.ssh/id_deploy -p 22 -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=20 -o ServerAliveCountMax=6 -o ConnectTimeout=20"
+      # Keep the bare form - braces expand before secrets are populated.
+      - export REMOTE="$VPS_USER@$VPS_HOST"
+      - sh scripts/ci-upload.sh
     when:
       - branch: main
-        event: push
+        event: [push, manual]
