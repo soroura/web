@@ -11,104 +11,122 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
   <title>Builds | Ahmed Sorour</title>
-  <meta name="description" content="A portfolio of practical tools and research helping health teams learn, prepare, exercise, assess, and improve.">
+  <meta name="description" content="Digital tools I have built to learn what AI can change in health care: patient safety assessment for hospitals and primary care, and Basic Emergency Care course operations.">
   <meta property="og:title" content="Builds — Ahmed Sorour">
-  <meta property="og:description" content="Tools built to close the gap between what health systems need and what practitioners actually have.">
+  <meta property="og:description" content="The first three platforms, each with an honest status.">
   <meta property="og:url" content="https://soroura.org/builds.html">
-  <meta name="theme-color" content="#334155">
+  <meta name="theme-color" content="#0f6b5f">
   <link rel="canonical" href="https://soroura.org/builds.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
   <nav class="site-nav" id="siteNav">
     <div class="container">
-      <a href="index.html" class="site-name"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#334155"/><text x="16" y="22" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#f1f5f9">AS</text><rect x="6" y="26" width="20" height="2" rx="1" fill="#dc2626"/></svg>field/notes</a>
+      <a href="index.html" class="site-name"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#0f6b5f"/><text x="16" y="22" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#f1f5f9">AS</text><rect x="6" y="26" width="20" height="2" rx="1" fill="#e3a845"/></svg>Ahmed Sorour</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
         <li><a href="builds.html" class="active">Builds</a></li>
-        <li><a href="writing.html">Field Notes</a></li>
+        <li><a href="writing.html">Writing</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="nav-cta">Collaborate</a></li>
+        <li><a href="contact.html" class="nav-cta">Say Hello</a></li>
       </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme" title="Switch theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
     </div>
   </nav>
 
   <section class="page-header">
     <div class="container--narrow">
       <div class="section-label">Builds</div>
-      <h1>Different tools. One connected programme of work.</h1>
-      <p class="lead">These projects help health teams learn, prepare, exercise, assess, and improve. Some are active platforms; others are research or programme infrastructure. Each begins with a problem observed in practice.</p>
+      <h1>I build tools to learn. These are the first three.</h1>
+      <p class="lead">Each one started with a piece of work that was slower or harder than it needed to be. They are pilots I designed and built myself, with AI-assisted development. They are not WHO products, and nothing on this page shows real patient, participant or facility data. More will follow, one at a time, as each is ready to show.</p>
     </div>
   </section>
 
   <main class="main">
     <div class="container--narrow">
 
-      <div class="project">
-        <h3>SimReady</h3>
-        <span class="status">In active development</span>
-        <p>Simulation exercises are among the best ways to test preparedness, yet much of the work is still coordinated through documents, spreadsheets, messaging groups, and memory. SimReady explores how one platform can support the exercise lifecycle from design and conduct to evaluation and learning.</p>
-        <p>The aim is not to automate the judgement of exercise teams. It is to make scenarios, injects, coordination, observations, and lessons easier to manage and carry forward.</p>
-        <p><strong>Collaboration sought:</strong> exercise practitioners, pilot teams, evaluators, and specialists in offline-first and multilingual systems.</p>
+      <div class="project" id="psfh">
+        <h3>PSFH: Patient Safety Friendly Hospital assessment</h3>
+        <span class="status">Working platform, piloted in two hospitals</span>
+        <div class="project-meta">Health systems, hospital quality and patient safety</div>
+        <h4>The problem</h4>
+        <p>The WHO Patient Safety Friendly Hospital Initiative asks assessors to rate 134 criteria across 21 standards. In practice this runs on spreadsheets and paper, so consolidating scores, linking evidence and following up on gaps is manual work.</p>
+        <h4>What I built</h4>
+        <p>An offline-first platform that scores as the team works, applies the critical-criteria gate, produces exit reports, and turns each gap into an action with a priority and a due date. A portfolio view shows where facilities stand over time.</p>
+        <h4>Where it stands</h4>
+        <p>Piloted in two hospitals. Organisational rollout is not confirmed yet, and results are still to be written up.</p>
+        <a href="https://psfpc.endura-assess.com/demo/index.html" target="_blank" rel="noopener" class="project-link">Watch the demonstration videos</a>
         <div class="tags">
-          <span class="tag">AI-Augmented</span>
+          <span class="tag">Patient Safety</span>
           <span class="tag">Offline-First</span>
-          <span class="tag">WHO Methodology</span>
-          <span class="tag">Arabic RTL</span>
-          <span class="tag">Human-Accountable</span>
+          <span class="tag">Assessment to Action</span>
+          <span class="tag">AI-Assisted Build</span>
         </div>
+        <p class="clearance">The initiative and its framework are WHO's, and the programme belongs to the people who run it. This platform is my independent build on top of them, not a WHO product and not WHO-endorsed. Demonstrations use fictitious facilities and illustrative scores.</p>
       </div>
 
-      <div class="project">
-        <h3>Assessment and Improvement Tools</h3>
-        <span class="status">Prototyping and programme development</span>
-        <p>Assessments often produce a score and a report, then lose momentum. This work explores how health-facility readiness, safety, emergency-care, and resilience instruments can move from data collection into prioritised actions and visible follow-up.</p>
-        <p>The focus is the full improvement loop: understand the gap, agree what matters, assign action, follow progress, and retain evidence for the next review.</p>
-        <p><strong>Collaboration sought:</strong> hospital teams, quality and preparedness leads, assessment specialists, and implementation researchers.</p>
+      <div class="project" id="psfpc">
+        <h3>PSFPC: Patient Safety Friendly Primary Care assessment</h3>
+        <span class="status">Working platform, piloted in one facility</span>
+        <div class="project-meta">Health systems, primary health care</div>
+        <h4>The problem</h4>
+        <p>The same spreadsheet problem, in primary care, where a peer team of two or three visits a facility and connectivity cannot be relied on.</p>
+        <h4>What I built</h4>
+        <p>A phone-first assessment for the WHO Eastern Mediterranean primary care framework: 125 criteria across 19 standards. Work continues offline, and no patient data is kept on the device. A critical criterion is either met or it is not; the tool never gives partial credit.</p>
+        <h4>Where it stands</h4>
+        <p>Piloted in one primary care facility; results to add. One scoring threshold is an interim ruling by the programme, not a WHO rule, and is labelled that way.</p>
+        <a href="https://psfpc.endura-assess.com/demo/index.html" target="_blank" rel="noopener" class="project-link">Watch it on a phone (3-minute video)</a>
         <div class="tags">
-          <span class="tag">Health Facility Assessment</span>
-          <span class="tag">WHO-Aligned</span>
-          <span class="tag">Quality Improvement</span>
-          <span class="tag">National Scale</span>
+          <span class="tag">Primary Health Care</span>
+          <span class="tag">Mobile</span>
+          <span class="tag">Offline-First</span>
+          <span class="tag">AI-Assisted Build</span>
         </div>
+        <p class="clearance">Independent build, not a WHO product and not WHO-endorsed. Demonstration videos use fictitious facility names and illustrative scores.</p>
       </div>
 
-      <div class="project">
-        <h3>Emergency-Care Learning Infrastructure</h3>
-        <span class="status">Programme work and product exploration</span>
-        <p>Training completion is not the same as capability. This work examines how emergency-care programmes can better support trainers, local delivery, practice, evidence, and continued improvement after a course ends.</p>
-        <p><strong>Collaboration sought:</strong> trainers, programme leads, learners, curriculum specialists, and teams evaluating changes in practice.</p>
+      <div class="project" id="bec">
+        <h3>BEC Hub Egypt: Basic Emergency Care course operations</h3>
+        <span class="status">Developed</span>
+        <div class="project-meta">Emergency care, training and credentialing</div>
+        <h4>The problem</h4>
+        <p>Running a national Basic Emergency Care programme meant course requests, trainer and provider lists, and certificates spread across spreadsheets and shared files.</p>
+        <h4>What I built</h4>
+        <p>One place for course requests and accreditation, provider and trainer registers, credentialing, and certificates that anyone can verify, with dashboards at country level.</p>
+        <h4>Where it stands</h4>
+        <p>Developed for Egypt's Basic Emergency Care programme, which I coordinate with the African Federation for Emergency Medicine. The programme and its curriculum belong to WHO and AFEM.</p>
         <div class="tags">
           <span class="tag">Emergency Care</span>
-          <span class="tag">Learning Systems</span>
-          <span class="tag">Trainer Support</span>
-          <span class="tag">Evaluation</span>
+          <span class="tag">Credentialing</span>
+          <span class="tag">Certificate Verification</span>
+          <span class="tag">AI-Assisted Build</span>
         </div>
-      </div>
-
-      <div class="project">
-        <h3>MSc Dissertation: TraumaApp ED Data Analysis</h3>
-        <span class="status">In Progress &middot; University of Edinburgh</span>
-        <p>A work-based dissertation analysing real-life data from the TraumaApp pilot at a Scottish hospital. The TraumaApp captures timed steps of the emergency department journey with a granularity that traditional registries cannot provide — making it possible to examine the factors that affect ED length of stay and time to definitive care.</p>
-        <p><strong>Collaboration sought:</strong> emergency-care researchers and practitioners interested in operational data, time-to-care measures, and service improvement.</p>
-        <div class="tags">
-          <span class="tag">Data Science</span>
-          <span class="tag">Emergency Department</span>
-          <span class="tag">Time-to-Care Analysis</span>
-        </div>
+        <p class="clearance">Independent build, not a WHO or AFEM product. No real provider, trainer or participant records appear on this site.</p>
       </div>
 
       <div class="writing-placeholder">
-        <p><strong>Supporting work:</strong> Related work includes mass-casualty and EMT exercise tools, hospital resilience methods, workforce planning, curriculum design, horizon scanning, and reusable knowledge and design systems. These will be added as public project pages when their status, ownership, and evidence are ready to present clearly.</p>
+        <p><strong>More on the way.</strong> I have built other tools in health systems and emergency care, including hospital safety, training and preparedness platforms. I add each one here when its status and evidence are ready to show clearly.</p>
       </div>
 
     </div>
@@ -116,17 +134,17 @@
 
   <section class="cta-banner">
     <div class="container--narrow">
-      <h2>Have a setting where this work could be tested?</h2>
+      <h2>Have a setting where one of these could be tested?</h2>
       <p>Bring a real workflow, pilot opportunity, research question, or specialist contribution.</p>
       <div class="cta-buttons">
-        <a href="contact.html" class="btn-primary">Ways to collaborate</a>
+        <a href="contact.html" class="btn-primary">Say hello</a>
       </div>
     </div>
   </section>
 
   <footer class="site-footer">
     <div class="container">
-      <span>&copy; 2026 Ahmed Sorour</span>
+      <span>&copy; 2026 Ahmed Sorour. Views and builds here are my own, not WHO's.</span>
       <div class="footer-links">
         <a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">LinkedIn</a>
 
@@ -135,8 +153,31 @@
   </footer>
 
   <script>
-    const nav = document.getElementById('siteNav');
-    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); });
+    (function () {
+      var root = document.documentElement;
+      var nav = document.getElementById('siteNav');
+      window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 10); });
+      var dark = window.matchMedia('(prefers-color-scheme: dark)');
+      function current() { return root.getAttribute('data-theme') || (dark.matches ? 'dark' : 'light'); }
+      var btn = document.querySelector('.theme-toggle');
+      function label() { btn.setAttribute('aria-pressed', current() === 'dark' ? 'true' : 'false'); }
+      if (btn) {
+        label();
+        btn.addEventListener('click', function () {
+          var next = current() === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+          label();
+        });
+      }
+      var toggle = document.querySelector('.nav-toggle');
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open') ? 'true' : 'false');
+        });
+      }
+    })();
   </script>
 
 </body>

@@ -6,7 +6,7 @@ Personal website for Ahmed Sorour. Static HTML + CSS, no build step, no JS frame
 
 - Plain HTML files (one per page)
 - Single `style.css` with CSS custom properties for theming
-- Light/dark mode via `prefers-color-scheme`
+- Light/dark themes: follows `prefers-color-scheme`, with a manual toggle in the nav (see Design system)
 - Hosted on a VPS: Cloudflare -> Nginx Proxy Manager -> `sorour-web` nginx container
 
 ## File structure
@@ -14,9 +14,9 @@ Personal website for Ahmed Sorour. Static HTML + CSS, no build step, no JS frame
 ```
 index.html       — homepage
 about.html       — bio / timeline / beliefs
-builds.html      — projects (SimReady, NAP)
+builds.html      — public builds (PSFH, PSFPC, BEC Hub); the rest are tracked in the owner's vault and released one at a time
 writing.html     — field notes index
-contact.html     — contact form
+contact.html     — Say Hello (LinkedIn; no form)
 style.css        — all styles
 nginx.conf       — server block for the sorour-web container
 deploy.sh        — server-side deploy (runs on the VPS)
@@ -28,13 +28,15 @@ favicon.svg / favicon.ico / apple-touch-icon.png
 
 Pages share a nav and footer copy-pasted into each HTML file. There's no template engine.
 
-## Design system (in style.css)
+## Design system (in style.css) — "Limestone & Nile", October 2026
 
-- Tokens defined as CSS variables under `:root` (light) and `@media (prefers-color-scheme: dark)`
-- Accent color is red (`--accent: #dc2626` light, `#ef4444` dark) — used sparingly, mainly for links and the "ABOUT"-style section labels
-- Display font: `DM Serif Display` (headlines)
-- Body font: `Inter`
-- Layout containers: `.container` (max 1080px) and `.container--narrow` (max 720px) for prose pages
+- Tokens are CSS variables: `--bg --surface --surface-2 --ink --ink-2 --ink-3 --rule --accent --accent-ink --accent-soft --signal --signal-soft --on-accent`
+- **Themes:** light tokens on `:root`; dark tokens under `@media (prefers-color-scheme: dark) :root:not([data-theme="light"])` AND `:root[data-theme="dark"]`. Default follows the system; the nav button `.theme-toggle` sets `data-theme` on `<html>` and stores it in `localStorage` (`theme`). A tiny inline script in every `<head>` applies the stored choice before paint (no flash). Every page carries the same head script, toggle button and bottom script; copy them from `index.html` when adding a page.
+- Accent: Nile teal (`#0f6b5f` light, `#5cc3b0` dark). Saffron `--signal` only for "current" timeline items and keyboard focus.
+- Type: `Newsreader` (headlines, article body) + `IBM Plex Sans` (UI and body), loaded by a `<link>` in each page head. Plex has an Arabic sibling for a future `/ar/`.
+- Signature element: the "distance line" under the home headline (Training to Practice), drawn once on load. Keep boldness there; no hover lifts, no arrow glyphs, no all-caps labels.
+- `prefers-reduced-motion` disables animation and transitions.
+- Layout containers: `.container` (max 1080px) and `.container--narrow` (max 700px) for prose pages.
 
 ## Deployment
 
@@ -74,7 +76,7 @@ If you forget and need an immediate fix: purge Cloudflare cache via dashboard �
 
 ## Conventions
 
-- Keep nav identical across all HTML files (current items: Builds, Field Notes, About, Say Hello)
+- Keep nav identical across all HTML files (current items: Builds, Writing, About, Say Hello, plus the theme toggle)
 - The active page gets `class="active"` on its nav link
 - Footer year is hardcoded — update once per year across all pages
 - Voice and content tone is documented separately in `brand-voice-guidelines.md` — read it before writing copy

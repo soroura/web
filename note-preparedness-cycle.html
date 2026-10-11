@@ -11,32 +11,45 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
   <title>From Fragmented Tools to a Preparedness Cycle | Ahmed Sorour</title>
   <meta name="description" content="Why learning, plans, exercises, assessments, and improvement should operate as one preparedness cycle.">
   <meta property="og:title" content="From Fragmented Tools to a Preparedness Cycle">
   <meta property="og:description" content="The missing connections between how health teams learn, prepare, exercise, assess, and improve.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://soroura.org/note-preparedness-cycle.html">
-  <meta name="theme-color" content="#334155">
+  <meta name="theme-color" content="#0f6b5f">
   <link rel="canonical" href="https://soroura.org/note-preparedness-cycle.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
   <nav class="site-nav" id="siteNav">
     <div class="container">
-      <a href="index.html" class="site-name"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#334155"/><text x="16" y="22" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#f1f5f9">AS</text><rect x="6" y="26" width="20" height="2" rx="1" fill="#dc2626"/></svg>field/notes</a>
+      <a href="index.html" class="site-name"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#0f6b5f"/><text x="16" y="22" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#f1f5f9">AS</text><rect x="6" y="26" width="20" height="2" rx="1" fill="#e3a845"/></svg>Ahmed Sorour</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="builds.html">Builds</a></li>
-        <li><a href="writing.html" class="active">Field Notes</a></li>
+        <li><a href="writing.html" class="active">Writing</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="nav-cta">Collaborate</a></li>
+        <li><a href="contact.html" class="nav-cta">Say Hello</a></li>
       </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme" title="Switch theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
     </div>
   </nav>
 
@@ -60,7 +73,7 @@
       <p>A more useful way to see the work is as one operating cycle:</p>
 
       <div class="article-cycle" aria-label="Learn, Prepare, Exercise, Assess, Improve">
-        <span>Learn</span><b>&rarr;</b><span>Prepare</span><b>&rarr;</b><span>Exercise</span><b>&rarr;</b><span>Assess</span><b>&rarr;</b><span>Improve</span>
+        <span>Learn</span><b></b><span>Prepare</span><b></b><span>Exercise</span><b></b><span>Assess</span><b></b><span>Improve</span>
       </div>
 
       <p><strong>Learning</strong> gives people a shared foundation. <strong>Preparation</strong> turns that foundation into roles, plans, and decisions. <strong>Exercises</strong> test whether those arrangements work under pressure. <strong>Assessment</strong> makes readiness and performance visible. <strong>Improvement</strong> assigns responsibility and carries the lesson into the next cycle.</p>
@@ -99,12 +112,38 @@
       <div class="article-invitation">
         <h2>Working on one of these handovers?</h2>
         <p>I am interested in settings where learning, exercises, assessment, or improvement work is strong on its own but disconnected from what comes next.</p>
-        <a href="contact.html" class="btn-primary">Bring a real problem &rarr;</a>
+        <a href="contact.html" class="btn-primary">Bring a real problem</a>
       </div>
     </article>
   </main>
 
-  <footer class="site-footer"><div class="container"><span>&copy; 2026 Ahmed Sorour</span><div class="footer-links"><a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
-  <script>const nav=document.getElementById('siteNav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10);});</script>
+  <footer class="site-footer"><div class="container"><span>&copy; 2026 Ahmed Sorour. Views and builds here are my own, not WHO's.</span><div class="footer-links"><a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var nav = document.getElementById('siteNav');
+      window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 10); });
+      var dark = window.matchMedia('(prefers-color-scheme: dark)');
+      function current() { return root.getAttribute('data-theme') || (dark.matches ? 'dark' : 'light'); }
+      var btn = document.querySelector('.theme-toggle');
+      function label() { btn.setAttribute('aria-pressed', current() === 'dark' ? 'true' : 'false'); }
+      if (btn) {
+        label();
+        btn.addEventListener('click', function () {
+          var next = current() === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+          label();
+        });
+      }
+      var toggle = document.querySelector('.nav-toggle');
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open') ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

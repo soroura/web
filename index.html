@@ -11,16 +11,24 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmed Sorour — Field Notes from Public Health, Disaster Medicine & Applied Technology</title>
-  <meta name="description" content="Practical infrastructure for health teams to learn, prepare, exercise, assess, and improve — built from public health and emergency practice.">
-  <meta property="og:title" content="Ahmed Sorour — Field Notes">
-  <meta property="og:description" content="Practical infrastructure connecting learning, preparedness, exercises, assessment, and improvement in health systems.">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Ahmed Sorour — Health Systems, Emergency Care, and Learning by Building</title>
+  <meta name="description" content="A doctor working on health systems and emergency care at WHO Egypt, on the distance between what we teach and the care people receive.">
+  <meta property="og:title" content="Ahmed Sorour — Health Systems and Emergency Care">
+  <meta property="og:description" content="Closing the distance between what we teach and the care people receive.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://soroura.org">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ahmed Sorour — Field Notes">
-  <meta name="twitter:description" content="Public health and disaster medicine specialist building tools for emergency care from Cairo.">
-  <meta name="theme-color" content="#334155">
+  <meta name="twitter:title" content="Ahmed Sorour — Health Systems and Emergency Care">
+  <meta name="twitter:description" content="Closing the distance between what we teach and the care people receive.">
+  <meta name="theme-color" content="#0f6b5f">
   <link rel="canonical" href="https://soroura.org/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -31,13 +39,13 @@
     "@type": "Person",
     "name": "Ahmed Sorour",
     "url": "https://soroura.org",
-    "jobTitle": "Public Health and Disaster Medicine Specialist",
+    "jobTitle": "Emergency Officer, Health Systems",
     "worksFor": {
       "@type": "Organization",
       "name": "World Health Organization",
       "url": "https://www.who.int"
     },
-    "knowsAbout": ["Public Health", "Disaster Medicine", "Emergency Care", "Simulation Exercises", "Health Systems", "AI in Healthcare"],
+    "knowsAbout": ["Health Systems", "Emergency Care", "Primary Health Care", "Patient Safety", "Digital Health", "Health Services Management"],
     "sameAs": [
       "https://linkedin.com/in/soroura"
     ],
@@ -50,129 +58,160 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
   <nav class="site-nav" id="siteNav">
     <div class="container">
-      <a href="index.html" class="site-name"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#334155"/><text x="16" y="22" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#f1f5f9">AS</text><rect x="6" y="26" width="20" height="2" rx="1" fill="#dc2626"/></svg>field/notes</a>
+      <a href="index.html" class="site-name"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#0f6b5f"/><text x="16" y="22" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#f1f5f9">AS</text><rect x="6" y="26" width="20" height="2" rx="1" fill="#e3a845"/></svg>Ahmed Sorour</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
         <li><a href="builds.html">Builds</a></li>
-        <li><a href="writing.html">Field Notes</a></li>
+        <li><a href="writing.html">Writing</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="nav-cta">Collaborate</a></li>
+        <li><a href="contact.html" class="nav-cta">Say Hello</a></li>
       </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme" title="Switch theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <h1 class="hero-provocation">Better preparedness needs better connections between learning, practice, evidence, and improvement.</h1>
-      <p class="intro">Health teams are asked to prepare for extraordinary situations with fragmented tools: courses that end at certification, exercises coordinated on paper, assessments trapped in spreadsheets, and lessons that are difficult to carry into the next response. My work starts inside that gap — working with practitioners to turn recurring field problems into useful tools, methods, and shared infrastructure.</p>
-      <div class="hero-buttons">
-        <a href="builds.html" class="btn-primary">Explore the work &rarr;</a>
-        <a href="contact.html" class="btn-secondary">Collaborate on a real problem</a>
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-eyebrow">Dr Ahmed Sorour, Cairo</div>
+        <h1 class="hero-provocation">Closing the distance between what we teach and the care people receive.</h1>
+        <div class="distance" aria-hidden="true">
+          <div class="distance-line"><span></span></div>
+          <div class="distance-labels"><span>Training</span><span>Practice</span></div>
+        </div>
+        <p class="intro">I am a doctor working on health systems and emergency care at WHO Egypt. We train health workers well; what happens after the course is where my work sits. Along the way I build small tools to learn what actually helps, and I share what works and what doesn't.</p>
+        <div class="hero-buttons">
+          <a href="builds.html" class="btn-primary">See what I've built</a>
+          <a href="about.html" class="btn-secondary">Read my story</a>
+        </div>
       </div>
+      <img src="my-bw.jpeg" alt="Portrait of Ahmed Sorour" class="hero-photo" width="260" height="325">
     </div>
   </section>
 
-  <!-- What I Work On — as Field Notes cards -->
+  <!-- Why I build -->
+  <section class="about-teaser">
+    <div class="about-teaser-inner">
+      <div class="field-marker"></div>
+      <h2>Why I build</h2>
+      <p>My aspiration is to learn by building. I make a tool, use it on real work, and watch what changes. First in the way I work. Then, if it holds up, in how health care is delivered.</p>
+      <p>AI can organise, compare, draft and suggest. People decide.</p>
+    </div>
+  </section>
+
+  <!-- Where the work is -->
   <section class="home-section">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">The operating cycle</div>
-        <div class="section-title">From guidance to capability</div>
+                <div class="section-title">Four areas, one gap</div>
       </div>
-      <div class="notes-grid">
+      <div class="notes-grid notes-grid--four">
         <div class="note-card">
-          <h3>Learn</h3>
-          <p>Turn guidance into usable learning, practice, and support for trainers and teams.</p>
+          <h3>Health systems</h3>
+          <p>Primary care, hospital quality, migrant and refugee health. Two assessment platforms came out of this work.</p>
         </div>
         <div class="note-card">
-          <h3>Prepare</h3>
-          <p>Translate plans and standards into roles, workflows, scenarios, and decisions.</p>
+          <h3>Emergency care and preparedness</h3>
+          <p>Basic Emergency Care, mass casualty management, hospital resilience. A course platform came out of this work.</p>
         </div>
         <div class="note-card">
-          <h3>Exercise</h3>
-          <p>Give teams realistic ways to test coordination before the real event.</p>
+          <h3>Learning by building</h3>
+          <p>Small digital tools, built to find out what actually helps the people doing the work. AI is one of the tools, not the point.</p>
         </div>
         <div class="note-card">
-          <h3>Assess</h3>
-          <p>Capture readiness, performance, and gaps in a form people can act on.</p>
-        </div>
-        <div class="note-card">
-          <h3>Improve</h3>
-          <p>Carry lessons into accountable actions, better tools, and the next cycle.</p>
+          <h3>Evidence and data</h3>
+          <p>A master's in data science, and the habit of asking what the data can and cannot tell us.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Latest Field Notes -->
+  <!-- Built so far -->
   <section class="home-section home-section--alt">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Selected work</div>
-        <div class="section-title">Different parts of the same problem</div>
+        <div class="section-title">What I have built so far</div>
       </div>
       <div class="posts-grid">
         <div class="post-card">
           <div class="post-card-meta">
-            <span>Exercises and readiness</span>
+            <span>Health systems, hospital quality</span>
           </div>
-          <h3><a href="builds.html">SimReady</a></h3>
-          <p>Exploring how one platform can support the simulation-exercise lifecycle from design and conduct to evaluation and learning.</p>
+          <h3><a href="builds.html#psfh">PSFH: Patient Safety Friendly Hospital assessment</a></h3>
+          <p>Live scoring, the critical-criteria gate, exit reports, and a gap-to-action plan for the WHO Patient Safety Friendly Hospital Initiative.</p>
           <div class="post-card-tags">
-            <span class="post-tag post-tag--amber">In active development</span>
+            <span class="post-tag post-tag--green">Working platform</span>
+            <span class="post-tag post-tag--gray">Piloted in two hospitals</span>
           </div>
         </div>
         <div class="post-card">
           <div class="post-card-meta">
-            <span>Assessment and improvement</span>
+            <span>Health systems, primary care</span>
           </div>
-          <h3><a href="builds.html">Readiness and improvement tools</a></h3>
-          <p>Moving health-facility assessments beyond a score and report toward prioritised actions and visible follow-up.</p>
+          <h3><a href="builds.html#psfpc">PSFPC: Patient Safety Friendly Primary Care assessment</a></h3>
+          <p>A phone-first, offline assessment for primary care facilities, built for peer teams working with unreliable connectivity.</p>
           <div class="post-card-tags">
-            <span class="post-tag post-tag--purple">Prototyping</span>
+            <span class="post-tag post-tag--green">Working platform</span>
+            <span class="post-tag post-tag--gray">Piloted in one facility</span>
           </div>
         </div>
         <div class="post-card">
           <div class="post-card-meta">
-            <span>Learning and capability</span>
+            <span>Emergency care, course operations</span>
           </div>
-          <h3><a href="builds.html">Emergency-care learning infrastructure</a></h3>
-          <p>Connecting training, trainer support, local delivery, practice, and continued improvement after a course ends.</p>
+          <h3><a href="builds.html#bec">BEC Hub Egypt: Basic Emergency Care course operations</a></h3>
+          <p>Course requests, provider and trainer registers, credentialing, and certificates with public verification.</p>
           <div class="post-card-tags">
-            <span class="post-tag post-tag--blue">Programme work</span>
+            <span class="post-tag post-tag--blue">Developed</span>
           </div>
         </div>
       </div>
-      <a href="builds.html" class="view-all">Explore the portfolio &rarr;</a>
+      <a href="builds.html" class="view-all">See the builds</a>
     </div>
   </section>
 
-  <!-- About Teaser -->
-  <section class="about-teaser">
-    <div class="about-teaser-inner">
-      <div class="field-marker"></div>
-      <h2>Field-led. Context-aware. Human-accountable. Measurable.</h2>
-      <p>I start with a workflow that is failing or taking too much effort. Language, connectivity, staffing, and policy are design requirements. AI can organise, compare, draft, and suggest. People decide.</p>
-      <a href="about.html" class="about-link">Read the full story &rarr;</a>
+  <!-- Latest writing -->
+  <section class="home-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title">Latest writing</div>
+      </div>
+      <div class="posts-grid posts-grid--two">
+        <div class="post-card">
+          <div class="post-card-meta"><span>Programme note</span></div>
+          <h3><a href="note-preparedness-cycle.html">From fragmented tools to a preparedness cycle</a></h3>
+          <p>Why courses, plans, exercises, assessments and improvement work should not be treated as separate activities.</p>
+        </div>
+        <div class="post-card">
+          <div class="post-card-meta"><span>Field observation</span></div>
+          <h3><a href="note-simulation-paper.html">Why simulation exercises still run on paper</a></h3>
+          <p>Paper is not the problem by itself. The deeper problem is fragmented coordination and lessons that are hard to keep.</p>
+        </div>
+      </div>
+      <a href="writing.html" class="view-all">All writing</a>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta-banner">
     <div class="container">
-      <h2>Bring a real problem.</h2>
-      <p>I am looking for practitioners, pilot teams, researchers, and technical collaborators who can make the work more useful and more rigorous.</p>
+      <h2>Working on health systems, digital tools or emergency care?</h2>
+      <p>I'd like to hear about it, especially if you have a real workflow where one of these tools could be tested.</p>
       <div class="cta-buttons">
-        <a href="contact.html" class="btn-primary">Ways to collaborate</a>
+        <a href="contact.html" class="btn-primary">Say hello</a>
         <a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener" class="btn-secondary">LinkedIn</a>
       </div>
     </div>
@@ -180,7 +219,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <span>&copy; 2026 Ahmed Sorour</span>
+      <span>&copy; 2026 Ahmed Sorour. Views and builds here are my own, not WHO's.</span>
       <div class="footer-links">
         <a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">LinkedIn</a>
 
@@ -189,8 +228,31 @@
   </footer>
 
   <script>
-    const nav = document.getElementById('siteNav');
-    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); });
+    (function () {
+      var root = document.documentElement;
+      var nav = document.getElementById('siteNav');
+      window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 10); });
+      var dark = window.matchMedia('(prefers-color-scheme: dark)');
+      function current() { return root.getAttribute('data-theme') || (dark.matches ? 'dark' : 'light'); }
+      var btn = document.querySelector('.theme-toggle');
+      function label() { btn.setAttribute('aria-pressed', current() === 'dark' ? 'true' : 'false'); }
+      if (btn) {
+        label();
+        btn.addEventListener('click', function () {
+          var next = current() === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+          label();
+        });
+      }
+      var toggle = document.querySelector('.nav-toggle');
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open') ? 'true' : 'false');
+        });
+      }
+    })();
   </script>
 
 </body>
