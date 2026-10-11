@@ -28,11 +28,11 @@ favicon.svg / favicon.ico / apple-touch-icon.png
 
 Pages share a nav and footer copy-pasted into each HTML file. There's no template engine.
 
-## Design system (in style.css) — "Limestone & Nile", October 2026
+## Design system (in style.css) — "Steel Blue", October 2026
 
 - Tokens are CSS variables: `--bg --surface --surface-2 --ink --ink-2 --ink-3 --rule --accent --accent-ink --accent-soft --signal --signal-soft --on-accent`
 - **Themes:** light tokens on `:root`; dark tokens under `@media (prefers-color-scheme: dark) :root:not([data-theme="light"])` AND `:root[data-theme="dark"]`. Default follows the system; the nav button `.theme-toggle` sets `data-theme` on `<html>` and stores it in `localStorage` (`theme`). A tiny inline script in every `<head>` applies the stored choice before paint (no flash). Every page carries the same head script, toggle button and bottom script; copy them from `index.html` when adding a page.
-- Accent: Nile teal (`#0f6b5f` light, `#5cc3b0` dark). Saffron `--signal` only for "current" timeline items and keyboard focus.
+- Accent: steel blue (`#356b93` light, `#8cb6d6` dark), chosen by Ahmed 2026-10-11 over a green first version. Amber `--signal` only for "current" timeline items and keyboard focus. Avoid WHO's own light blue so the site never reads as a WHO page.
 - Type: `Newsreader` (headlines, article body) + `IBM Plex Sans` (UI and body), loaded by a `<link>` in each page head. Plex has an Arabic sibling for a future `/ar/`.
 - Signature element: the "distance line" under the home headline (Training to Practice), drawn once on load. Keep boldness there; no hover lifts, no arrow glyphs, no all-caps labels.
 - `prefers-reduced-motion` disables animation and transitions.

@@ -1,24 +1,24 @@
 /* ===== Ahmed Sorour — soroura.org =====
-   Limestone & Nile: cool limestone paper, deep ink, one Nile-teal accent,
-   saffron reserved for "current" and focus. Newsreader + IBM Plex Sans.
+   Steel Blue: cool grey paper, slate ink, one muted steel-blue accent,
+   amber reserved for "current" and focus. Newsreader + IBM Plex Sans.
    Themes: follows the system by default; [data-theme] on <html> overrides. */
 
 /* ===== TOKENS: LIGHT ===== */
 :root {
-  --bg: #f6f7f4;
+  --bg: #f4f6f8;
   --surface: #ffffff;
-  --surface-2: #eef1ed;
-  --ink: #172420;
-  --ink-2: #4f5f59;
-  --ink-3: #7b8a84;
-  --rule: #d8ded9;
-  --accent: #0f6b5f;
-  --accent-ink: #0b544a;
-  --accent-soft: #e2efeb;
-  --signal: #b7791f;
-  --signal-soft: #f6ecd9;
+  --surface-2: #eaeef2;
+  --ink: #1a2531;
+  --ink-2: #526170;
+  --ink-3: #7d8b98;
+  --rule: #d8dfe6;
+  --accent: #356b93;
+  --accent-ink: #285679;
+  --accent-soft: #e2ecf3;
+  --signal: #b07d2c;
+  --signal-soft: #f5ecdc;
   --on-accent: #ffffff;
-  --shadow: 0 1px 2px rgba(23, 36, 32, 0.06);
+  --shadow: 0 1px 2px rgba(26, 37, 49, 0.06);
 
   --radius: 10px;
   --radius-sm: 6px;
@@ -32,19 +32,19 @@
 /* ===== TOKENS: DARK (system) ===== */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0e1513;
-    --surface: #15201d;
-    --surface-2: #1b2824;
-    --ink: #e6ece9;
-    --ink-2: #a3b3ad;
-    --ink-3: #74857f;
-    --rule: #26332f;
-    --accent: #5cc3b0;
-    --accent-ink: #7fd3c3;
-    --accent-soft: rgba(92, 195, 176, 0.12);
-    --signal: #e3a845;
-    --signal-soft: rgba(227, 168, 69, 0.14);
-    --on-accent: #0b1714;
+    --bg: #0e141a;
+    --surface: #151d25;
+    --surface-2: #1b252f;
+    --ink: #e5ebf0;
+    --ink-2: #9fb0be;
+    --ink-3: #728391;
+    --rule: #24303b;
+    --accent: #8cb6d6;
+    --accent-ink: #a9cae3;
+    --accent-soft: rgba(140, 182, 214, 0.14);
+    --signal: #dda74f;
+    --signal-soft: rgba(221, 167, 79, 0.14);
+    --on-accent: #0e141a;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     color-scheme: dark;
   }
@@ -52,19 +52,19 @@
 
 /* ===== TOKENS: DARK (chosen) ===== */
 :root[data-theme="dark"] {
-  --bg: #0e1513;
-  --surface: #15201d;
-  --surface-2: #1b2824;
-  --ink: #e6ece9;
-  --ink-2: #a3b3ad;
-  --ink-3: #74857f;
-  --rule: #26332f;
-  --accent: #5cc3b0;
-  --accent-ink: #7fd3c3;
-  --accent-soft: rgba(92, 195, 176, 0.12);
-  --signal: #e3a845;
-  --signal-soft: rgba(227, 168, 69, 0.14);
-  --on-accent: #0b1714;
+  --bg: #0e141a;
+  --surface: #151d25;
+  --surface-2: #1b252f;
+  --ink: #e5ebf0;
+  --ink-2: #9fb0be;
+  --ink-3: #728391;
+  --rule: #24303b;
+  --accent: #8cb6d6;
+  --accent-ink: #a9cae3;
+  --accent-soft: rgba(140, 182, 214, 0.14);
+  --signal: #dda74f;
+  --signal-soft: rgba(221, 167, 79, 0.14);
+  --on-accent: #0e141a;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   color-scheme: dark;
 }
