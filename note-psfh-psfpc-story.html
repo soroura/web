@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9W3WGVJL8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H9W3WGVJL8');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <title>From a Paper Checklist to Two Living Platforms | Ahmed Sorour</title>
+  <meta name="description" content="How two patient safety assessment tools, PSFH and PSFPC, were imagined, built and run, and what is still unproven.">
+  <meta property="og:title" content="From a paper checklist to two living platforms">
+  <meta property="og:description" content="The story of PSFH and PSFPC: two bets on how digital tools get adopted in patient safety assessment.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://soroura.org/note-psfh-psfpc-story.html">
+  <meta property="og:image" content="https://soroura.org/story-psf-cover-illustration.jpg">
+  <meta name="theme-color" content="#356b93">
+  <link rel="canonical" href="https://soroura.org/note-psfh-psfpc-story.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
+  <link rel="stylesheet" href="style.css?v=9">
+</head>
+<body>
+  <nav class="site-nav" id="siteNav">
+    <div class="container">
+      <a href="index.html" class="site-name"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#356b93"/><text x="16" y="22" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#f1f5f9">AS</text><rect x="6" y="26" width="20" height="2" rx="1" fill="#e3a845"/></svg>Ahmed Sorour</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="builds.html">Builds</a></li>
+        <li><a href="writing.html" class="active">Writing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Say Hello</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme" title="Switch theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="container--narrow">
+      <div class="section-label">Build story</div>
+      <h1>From a paper checklist to two living platforms</h1>
+      <p class="lead">How two patient safety assessment tools were imagined, built and run, and what we still have to prove.</p>
+      <div class="article-meta">Ahmed Sorour &middot; October 2026 &middot; 8 minute read</div>
+    </div>
+  </header>
+
+  <main class="main">
+    <article class="container--narrow prose article-body">
+      <p>A patient safety assessment has more than a hundred criteria, takes days on site, and wants evidence in every corner of the building. Paper can carry that. It struggles to share a live score, keep evidence with the right criterion, or show how many facilities stand where.</p>
+
+      <figure class="article-figure">
+        <img src="story-psf-scene-illustration.jpg" alt="Two assessors in white coats checking a hand-sanitiser dispenser in the corridor of an Egyptian family health unit" loading="lazy">
+        <figcaption>AI-generated illustration: assessors checking a corridor in a family health unit.</figcaption>
+      </figure>
+
+      <h2>It started with a programme, not an app</h2>
+
+      <p>The hospital and primary care patient safety programmes were launched with a framework. National trainers were prepared to carry the assessment approach. Mentoring through real implementation showed what was missing: practical tools for the visit itself.</p>
+
+      <figure class="article-figure">
+        <img src="story-psf-zayed-team.jpg" alt="Group photo of the assessment team and hospital staff in an auditorium at Zayed Specialized Hospital, Giza" loading="lazy">
+        <figcaption>With hospital staff and the team at Zayed Specialized Hospital, Giza, Egypt.</figcaption>
+      </figure>
+
+      <p>The idea for digital support came out of that work. The tools build on it. They are an experiment in supporting the programme, not a replacement for it and not an endorsed product.</p>
+
+
+      <h2>Two tools, two bets</h2>
+
+      <p><strong>PSFH</strong> is for hospitals. It follows the WHO Patient Safety Friendly Hospital Initiative, third edition (2020): five domains, 21 standards, 134 criteria. <strong>PSFPC</strong> is for primary care. It follows the WHO EMRO Patient Safety Friendly Primary Care Framework, first edition (2022): five domains, 19 standards, 125 criteria.</p>
+
+      <p>They also test two different ideas about how adoption happens.</p>
+
+      <div class="article-figure">
+        <div class="figure-row">
+          <img src="story-psf-hospital-illustration.jpg" alt="Exterior of an Egyptian public general hospital at golden hour" loading="lazy">
+          <img src="story-psf-clinic-illustration.jpg" alt="Exterior of a rural family health unit in the Nile Delta" loading="lazy">
+        </div>
+        <figcaption>AI-generated illustrations: a general hospital, and a rural family health unit.</figcaption>
+      </div>
+
+      <p>PSFH bets on <em>institutional adoption</em>: a platform a Country Office or national counterpart can adopt to run ongoing assessments, actions and reports across many teams and sites. PSFPC bets on <em>the assessor's experience</em>: mobile screens for the visit itself, built around documents, interviews and walkarounds, working offline.</p>
+
+      <p>What I want to learn is which bet earns its place in real settings. That is an open question, and I treat it as one.</p>
+
+      <h2>PSFH: the assessor's workspace</h2>
+
+      <p>The PSFH scoring screen has three panes: the criteria tree, the criterion with its evidence of compliance, and a live score. If any critical criterion is not fully met, certification is blocked. Anything short of fully met needs a gap comment before submission, so there are no silent gaps.</p>
+
+      <figure class="article-figure">
+        <img src="story-psfh-scoring.png" alt="PSFH scoring screen with criteria tree, criterion detail and live score sidebar" loading="lazy">
+        <figcaption>PSFH scoring screen. Demo data, not real results.</figcaption>
+      </figure>
+
+      <p>Above the single assessment sits the institution's view: hospitals, users and assessments across sites, action plans with deadlines and admin review, and exit reports in PDF, DOCX and XLSX.</p>
+
+      <h2>PSFPC: built for the visit itself</h2>
+
+      <p>Primary care visits are shorter, usually one to two days, so the field screens mirror how evidence is actually gathered: three lanes for documents, interviews and walkarounds. The app works offline for up to 48 hours and keeps no patient data on the device. Where teammates rate a criterion differently, a conflict opens, and the lead resolves it with a written reason. Both ratings stay in the record.</p>
+
+      <figure class="article-figure">
+        <div class="figure-row figure-row--phones">
+          <img src="story-psfpc-domains.png" alt="Phone screen showing the five domains and progress" loading="lazy">
+          <img src="story-psfpc-criterion.png" alt="Phone screen showing a critical criterion with the manual's evidence of compliance" loading="lazy">
+          <img src="story-psfpc-observation.png" alt="Phone screen showing observation rounds" loading="lazy">
+        </div>
+        <figcaption>PSFPC on a phone: domains at a glance, the manual's own words for a critical criterion, and observation rounds. Demo data.</figcaption>
+      </figure>
+
+      <p>The screens are only half of a visit. The rest happens in meeting rooms and on rooftops.</p>
+
+      <figure class="article-figure">
+        <div class="figure-row">
+          <img src="story-psf-kom-shokafa-session.jpg" alt="An assessor in a WHO vest briefing staff seated in a meeting room at Kom Shokafa Hospital" loading="lazy">
+          <img src="story-psf-kom-shokafa-walkaround.jpg" alt="Assessors in WHO vests talking with a member of facility staff on a hospital roof in Alexandria" loading="lazy">
+        </div>
+        <figcaption>Kom Shokafa Hospital, Alexandria, Egypt: briefing staff, and a walkaround on the roof.</figcaption>
+      </figure>
+
+      <h2>From finding to corrective action</h2>
+
+      <p>The review is where an assessment becomes useful. Every gap gets a comment, a corrective action, a priority and a due date. Submission is blocked until every criterion is rated, every conflict is resolved and every gap is explained.</p>
+
+      <figure class="article-figure">
+        <img src="story-psfh-review.png" alt="PSFH review screen listing Not Met criteria, each with a gap comment, corrective action, priority and due date" loading="lazy">
+        <figcaption>PSFH review screen. Demo data.</figcaption>
+      </figure>
+
+      <p>After the visit, the facility works through its action plan and gets email reminders before each due date. The next survey is what verifies the result, on a re-survey cycle of 12 to 36 months by level. That interval is a working assumption until WHO EMRO confirms it.</p>
+
+      <h2>How they were built</h2>
+
+      <p>The method is plain. Write down what the framework and its users need before any code. Ship in small working slices, each one a product you can demonstrate. Let AI write much of the code, with written rules and human review keeping it right. Test, try it live, record what changed, then plan the next slice.</p>
+
+      <p>PSFH came first, from an earlier resilience platform and a detailed requirements document. It proved the approach and left behind a hand-over pack with a step-by-step build order and a list of what to reuse. PSFPC started from PSFH's code. Of 76 planned stories, 12 were lifted as they were, 15 were adapted and 49 were new. Sign-in, offline work and reports came across. The screens were new. The core was built in about three weeks, with far more automated tests: 1,067 recorded passing on 16 September.</p>
+
+      <blockquote>Documentation is not overhead. It is what makes the next tool cheaper.</blockquote>
+
+      <p>Two rules kept the work honest. The PSFPC scoring tests were written from the manual, not copied from PSFH, because PSFH's own tests had locked in a threshold mismatch. And contested rules, such as level thresholds, are stored as data, so a ruling can change without new code. One of them is still an interim ruling by the programme owner, not WHO EMRO, and I do not present it otherwise.</p>
+
+      <h2>How they run</h2>
+
+      <p>Simple by design. Each platform is one web application on one server, with a database and a file store, backed up every night. PSFPC updates itself after the automated checks pass, with one step to undo, and a health page names the exact version that is live. PSFH is still deployed by hand.</p>
+
+      <p>What I have not done yet is rehearse a full restore on production. A backup you have never restored is a hope, so that drill is on the list.</p>
+
+      <h2>Where it stands</h2>
+
+      <p>Both platforms are live and being piloted. Pilot accounts are set up, and I have no record yet of a completed real survey or of a formal evaluation plan. PSFH has far fewer automated tests than PSFPC, its mobile scoring screen needs work, and its self-registration for facilities is built but not yet live. Arabic and French are mostly scaffolding. I would rather say that here than have you find it later.</p>
+
+      <p>The code sits in two private repositories with no licence chosen yet. If it is going to scale, it needs an organisation-owned home, a licence, a short guide for contributors, and shared ownership of hosting and support.</p>
+
+      <h2>What comes next</h2>
+
+      <ul>
+        <li><strong>Now:</strong> pilot in real facilities, confirm thresholds with WHO EMRO, rehearse a full restore.</li>
+        <li><strong>Next:</strong> full Arabic and French, PSFH scoring on phones, automated updates and deeper tests for PSFH.</li>
+        <li><strong>Later:</strong> resilience and emergency care checklists, links to hospital information systems, programme views across countries.</li>
+      </ul>
+
+      <p>These are directions for discussion, not committed releases. The same backbone already serves other standards. The Hospital Safety Index platform was built on it, and the <a href="note-preparedness-cycle.html">preparedness cycle</a> is the larger thread behind all of it.</p>
+
+      <h2>Five things I would carry out of the room</h2>
+
+      <ul>
+        <li>Start from the programme. Tools support work people already trust.</li>
+        <li>Slice vertically. Keep a working product at every release.</li>
+        <li>Gate the risky bets, and make contested rules data.</li>
+        <li>Fork a backbone, and write it for the next team.</li>
+        <li>Be honest about what is unproven. Drills and decisions beat confidence.</li>
+      </ul>
+
+      <div class="article-invitation">
+        <h2>Where should we focus next?</h2>
+        <p>Which adoption bet fits your setting, institutional or assessor-centred? Who can pilot, review content, or help host and maintain it? Which standard should the backbone serve next? Both tools are listed on the <a href="builds.html">builds page</a>.</p>
+        <a href="contact.html" class="btn-primary">Say hello</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer"><div class="container"><span>&copy; 2026 Ahmed Sorour. Views and builds here are my own, not WHO's.</span><div class="footer-links"><a href="https://linkedin.com/in/soroura" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var nav = document.getElementById('siteNav');
+      window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 10); });
+      var dark = window.matchMedia('(prefers-color-scheme: dark)');
+      function current() { return root.getAttribute('data-theme') || (dark.matches ? 'dark' : 'light'); }
+      var btn = document.querySelector('.theme-toggle');
+      function label() { btn.setAttribute('aria-pressed', current() === 'dark' ? 'true' : 'false'); }
+      if (btn) {
+        label();
+        btn.addEventListener('click', function () {
+          var next = current() === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+          label();
+        });
+      }
+      var toggle = document.querySelector('.nav-toggle');
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open') ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
