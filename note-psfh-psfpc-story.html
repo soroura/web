@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
   <nav class="site-nav" id="siteNav">
@@ -56,6 +56,7 @@
 
   <header class="article-header">
     <div class="container--narrow">
+      <div class="article-crumb"><a href="writing.html">&larr; Writing</a></div>
       <div class="section-label">Build story</div>
       <h1>From a paper checklist to two living platforms</h1>
       <p class="lead">How two patient safety assessment tools were imagined, built and run, and what we still have to prove.</p>
@@ -66,6 +67,15 @@
   <main class="main">
     <article class="container--narrow prose article-body">
       <p>A patient safety assessment has more than a hundred criteria, takes days on site, and wants evidence in every corner of the building. Paper can carry that. It struggles to share a live score, keep evidence with the right criterion, or show how many facilities stand where.</p>
+
+      <div class="article-summary">
+        <p class="summary-title">In short</p>
+        <ul>
+          <li><a href="builds.html#psfh">PSFH</a> (hospitals) and <a href="builds.html#psfpc">PSFPC</a> (primary care) are my own pilot builds on top of two WHO patient safety frameworks. They are not WHO products.</li>
+          <li>They test two ideas: adoption by an institution, and a better day for the assessor on site.</li>
+          <li>PSFPC was built in about three weeks by reusing what PSFH had written down. The honest gaps are listed below.</li>
+        </ul>
+      </div>
 
       <figure class="article-figure">
         <img src="story-psf-scene-illustration.jpg" alt="Two assessors in white coats checking a hand-sanitiser dispenser in the corridor of an Egyptian family health unit" loading="lazy">
@@ -86,7 +96,7 @@
 
       <h2>Two tools, two bets</h2>
 
-      <p><strong>PSFH</strong> is for hospitals. It follows the WHO Patient Safety Friendly Hospital Initiative, third edition (2020): five domains, 21 standards, 134 criteria. <strong>PSFPC</strong> is for primary care. It follows the WHO EMRO Patient Safety Friendly Primary Care Framework, first edition (2022): five domains, 19 standards, 125 criteria.</p>
+      <p><strong><a href="builds.html#psfh">PSFH</a></strong> is for hospitals. It follows the WHO Patient Safety Friendly Hospital Initiative, third edition (2020): five domains, 21 standards, 134 criteria. <strong><a href="builds.html#psfpc">PSFPC</a></strong> is for primary care. It follows the WHO EMRO Patient Safety Friendly Primary Care Framework, first edition (2022): five domains, 19 standards, 125 criteria.</p>
 
       <p>They also test two different ideas about how adoption happens.</p>
 
@@ -131,7 +141,7 @@
       <figure class="article-figure">
         <div class="figure-row">
           <img src="story-psf-kom-shokafa-session.jpg" alt="An assessor in a WHO vest briefing staff seated in a meeting room at Kom Shokafa Hospital" loading="lazy">
-          <img src="story-psf-kom-shokafa-walkaround.jpg" alt="Assessors in WHO vests talking with a member of facility staff on a hospital roof in Alexandria" loading="lazy">
+          <img class="crop-low" src="story-psf-kom-shokafa-walkaround.jpg" alt="Assessors in WHO vests talking with a member of facility staff on a hospital roof in Alexandria" loading="lazy">
         </div>
         <figcaption>Kom Shokafa Hospital, Alexandria, Egypt: briefing staff, and a walkaround on the roof.</figcaption>
       </figure>
@@ -165,7 +175,7 @@
 
       <h2>Where it stands</h2>
 
-      <p>Both platforms are live and being piloted. Pilot accounts are set up, and I have no record yet of a completed real survey or of a formal evaluation plan. PSFH has far fewer automated tests than PSFPC, its mobile scoring screen needs work, and its self-registration for facilities is built but not yet live. Arabic and French are mostly scaffolding. I would rather say that here than have you find it later.</p>
+      <p>Both platforms are in pilot: PSFH in two hospitals and PSFPC in one primary care facility. Results are still to be written up, and organisational rollout is not confirmed. PSFH has far fewer automated tests than PSFPC, its mobile scoring screen needs work, and its self-registration for facilities is built but not yet live. Arabic and French are mostly scaffolding. I would rather say that here than have you find it later.</p>
 
       <p>The code sits in two private repositories with no licence chosen yet. If it is going to scale, it needs an organisation-owned home, a licence, a short guide for contributors, and shared ownership of hosting and support.</p>
 
@@ -188,6 +198,16 @@
         <li>Fork a backbone, and write it for the next team.</li>
         <li>Be honest about what is unproven. Drills and decisions beat confidence.</li>
       </ul>
+
+      <aside class="article-related" aria-label="Related">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="builds.html#psfh">PSFH on the builds page</a><span>Problem, what I built and where it stands: hospitals, 134 criteria.</span></li>
+          <li><a href="builds.html#psfpc">PSFPC on the builds page</a><span>The same for primary care, 125 criteria, phone-first and offline.</span></li>
+          <li><a href="note-preparedness-cycle.html">From fragmented tools to a preparedness cycle</a><span>The larger idea these platforms belong to.</span></li>
+          <li><a href="writing.html">All writing</a></li>
+        </ul>
+      </aside>
 
       <div class="article-invitation">
         <h2>Where should we focus next?</h2>
